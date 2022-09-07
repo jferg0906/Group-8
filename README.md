@@ -26,4 +26,6 @@ Techniques:
 Using Django framework, a specialized python web framework that enables teams to rapidly develop a website that has a clean, modular, and navigable design.  
 
 Languages:   
-Using Python to work alongside the Django framework.  
+- Using Python to work alongside the Django framework (Back End).
+- Using HTML for website layout and design (Front End). 
+- Using CSS for website styling (Front End). 
