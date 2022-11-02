@@ -19,7 +19,7 @@ jobs:
           command: "echo Hello, World!"    
   build:
     docker:
-      - image: circleci/python:3.10.5
+      - image: cimg/python:3.10.5
     steps:
       - checkout
       - restore_cache:
