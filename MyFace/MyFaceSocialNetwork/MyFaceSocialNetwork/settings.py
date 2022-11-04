@@ -150,3 +150,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = '/social/'
+
+AUTH_PROFILE_MODEL = 'social.UserProfile'
+AUTH_PROFILE_MODULE = 'social.UserProfile'

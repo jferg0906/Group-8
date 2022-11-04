@@ -16,6 +16,9 @@
     </option>
   </component>
   <component name="ProjectId" id="2FdnOaqF5SFLqpOrgSBKYyS2WrE" />
+  <component name="PropertiesComponent">
+    <property name="run.code.analysis.last.selected.profile" value="aDefault" />
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
