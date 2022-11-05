@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center mt-3">
             <div class="col-md-5 col-sm-12">
-                <h5>Type a post</h5>
+                <h5>Type a Post</h5>
             </div>
         </div>
         <div class="row justify-content-center mt-3 mb-5">
@@ -18,14 +18,30 @@
                 </form>
             </div>
         </div>
-                  <p class="row justify-content-center mt-3", style="border:solid; border-radius:5px; border-color:dodgerblue; background-color:dodgerblue;"> Post Feed </p>
+        <p class="row justify-content-center mt-3", style="border:solid; border-radius:5px; border-color:dodgerblue; background-color:dodgerblue;"> Post Feed </p>
         {% for post in post_list %}
         <div class="row justify-content-center mt-3">
             <div class="col-md-5 col-sm-1 position-relative", style="border:solid; border-radius:5px; border-color:dodgerblue; background-color:white;">
+                {% if post.shared_user %}
+                  <p><strong>@{{ post.shared_user }}</strong> Shared a Post</p>
+                  <p style="font-size: 12px;">{{ post.shared_on }}</p>
+                {% endif %}
+                {% if post.shared_body %}
+                  <div class="position-relative border-bottom mb-3">
+                    <p>{{ post.shared_body }}</p>
+                  </div>
+                {% endif %}
                 <p><strong>@{{ post.author }}</strong></p>
                 <p style="font-size: 12px;">{{ post.created_on }}</p>
                 <p>{{ post.body }}</p>
                 <a class="stretched-link" href="{% url 'post-detail' post.pk %}"></a>
+                <div class="d-flex flex-row">
+                    <form method="POST" action="{% url 'like' post.pk %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ request.path }}">
+                        <button style="background-color: transparent; border: none; box-shadow: none;" type="submit"><i class="far fa-thumbs-up"></i> <span>{{ post.likes.all.count }}</span></button>
+                    </form>
+                </div>
             </div>
         </div>
         {% endfor %}
